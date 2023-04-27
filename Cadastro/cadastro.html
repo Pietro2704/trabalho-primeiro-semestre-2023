@@ -59,6 +59,10 @@
                             <input class="form-control" type="text" id="txtNome" placeholder=" " autofocus />
                             <label for="txtNome">Nome</label>
                         </div>
+                        <div class="form-floating mb-3">
+                          <input class="form-control" type="text" id="txtemail" placeholder=" " />
+                          <label for="txtemail">Email</label>
+                        </div>
                         <div class="form-floating mb-3 col-md-6 col-xl-4">
                             <input class="form-control" type="text" id="txtCPF" placeholder=" " />
                             <label for="txtCPF">CPF</label>
@@ -87,7 +91,8 @@
                         </div>
                         <div class="mb-3 col-md-6 col-lg-8 align-self-end">
                             <textarea class="form-control text-muted bg-light"
-                                style="height: 58px; font-size: 14px;"
+                                id="txtBairro"
+                                style="height: 30px; font-size: 14px;"
                                 disabled>Digite o CEP para buscarmos o endereço.</textarea>
                         </div>
                         <div class="clearfix"></div>
@@ -100,12 +105,12 @@
                             <label for="txtComplemento">Complemento</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" id="txtReferencia" placeholder=" " />
-                            <label for="txtReferencia">Referência</label>
+                            <input class="form-control" type="text" id="txtCidade" placeholder=" " />
+                            <label for="txtReferencia">Cidade</label>
                         </div>
                     </fieldset>
                     <fieldset class="row gx-3">
-                        <legend>Senha de Acesso</legend>
+                        <legend>Usuário e Senha</legend>
                         <div class="form-floating mb-3 col-lg-6">
                             <input class="form-control" type="password" id="txtSenha" placeholder=" " />
                             <label for="txtSenha">Senha</label>
@@ -114,6 +119,7 @@
                             <input class="form-control" id="txtConfirmacaoSenha" placeholder=" " />
                             <label class="form-label" for="txtConfirmacaoSenha">Confirmação da Senha</label>
                         </div>
+                        
                     </fieldset>
                 </div>
             </div>
@@ -145,5 +151,33 @@
       </div>
     </footer>       
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+
+      function buscarCep(cep) {
+        // Monta a URL da API do ViaCEP
+        var url = `https://viacep.com.br/ws/${cep}/json/`;
+      
+        // Faz uma requisição GET para a API do ViaCEP
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            // Preenche os campos do formulário com os dados do endereço
+            document.getElementById("txtComplemento").value = data.logradouro;
+            document.getElementById("txtBairro").value = data.bairro;
+            document.getElementById("txtCidade").value = data.localidade;
+            //document.getElementById("estado").value = data.uf;
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
+      
+      // Adiciona um listener para o evento "blur" do campo de CEP
+      document.getElementById("txtCEP").addEventListener("blur", function() {
+        var cep = this.value.replace(/\D/g, ""); // Remove os caracteres não numéricos do CEP
+        buscarCep(cep);
+      });
+
+    </script>
   </body>
 </html>

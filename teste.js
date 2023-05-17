@@ -5,6 +5,10 @@ const url = 'https://dummyjson.com/products';
       const data = response.data;
   
       const produtosContainer = document.getElementById('produtos-container');
+      produtosContainer.style.display = 'flex';
+      produtosContainer.style.flexWrap = 'wrap';
+      produtosContainer.style.justifyContent = 'center';
+      
   
       data.products.forEach(product => {
         const { title, description, thumbnail } = product;

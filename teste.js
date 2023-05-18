@@ -1,3 +1,5 @@
+/*
+
 const url = 'https://dummyjson.com/products';
 
   axios.get(url)
@@ -51,3 +53,5 @@ const url = 'https://dummyjson.com/products';
     .catch(error => {
       console.error('Erro na requisição:', error);
     });
+*/
+

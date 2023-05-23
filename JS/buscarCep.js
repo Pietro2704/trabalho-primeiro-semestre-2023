@@ -1,3 +1,5 @@
+
+
 function buscarCep(cep) {
   // Monta a URL da API do ViaCEP
   var url = `https://viacep.com.br/ws/${cep}/json/`;
@@ -22,3 +24,4 @@ document.getElementById("txtCEP").addEventListener("blur", function() {
   var cep = this.value.replace(/\D/g, ""); // Remove os caracteres não numéricos do CEP
   buscarCep(cep);
 });
+

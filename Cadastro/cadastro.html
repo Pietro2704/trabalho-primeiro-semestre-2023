@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/">
-    <link rel="stylesheet" href="/CSS/estilos.css">
+    <link rel="stylesheet" href="../CSS/estilos.css">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <title>Cadastro</title>
   </head>
@@ -50,25 +50,26 @@
       <div class="container py-3">
         <h1>Informe seus dados, por favor!</h1>
         <hr>
-        <form>
+        <form action="../Banco/insert.php" method="POST">
+
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <fieldset class="row gx-3">
                         <legend>Dados Pessoais</legend>
                         <div class="form-floating mb-3">
-                            <input class="form-control" type="text" id="txtNome" placeholder=" " autofocus />
+                            <input class="form-control" type="text" id="txtNome" name="txtNome" placeholder=" " autofocus />
                             <label for="txtNome">Nome</label>
                         </div>
                         <div class="form-floating mb-3">
-                          <input class="form-control" type="text" id="txtemail" placeholder=" " />
+                          <input class="form-control" type="text" id="txtemail" name="txtemail" placeholder=" " />
                           <label for="txtemail">Email</label>
                         </div>
                         <div class="form-floating mb-3 col-md-6 col-xl-4">
-                            <input class="form-control" type="text" id="txtCPF" placeholder=" " />
+                            <input class="form-control" type="text" id="txtCPF" name="txtCPF" placeholder=" " />
                             <label for="txtCPF">CPF</label>
                         </div>
                         <div class="form-floating mb-3 col-md-6 col-xl-4">
-                            <input class="form-control" type="date" id="txtDataNascimento" placeholder=" " />
+                            <input class="form-control" type="date" id="txtDataNascimento" name="txtDataNascimento" placeholder=" " />
                             <label for="txtDataNascimento" class="d-inline d-sm-none d-md-inline d-lg-none">Data Nascimento</label>
                             <label for="txtDataNascimento" class="d-none d-sm-inline d-md-none d-lg-inline">Data de Nascimento</label>
                         </div>
@@ -77,7 +78,7 @@
                         <legend>Contatos</legend>
                         <div class="mb-3 col-md-8">
                             <label for="txtTelefone" class="form-label">Telefone</label>
-                            <input type="tel" class="form-control" id="txtTelefone" placeholder="11970707070">
+                            <input type="tel" class="form-control" id="txtTelefone" name="txtTelefone" placeholder="11970707070">
                             <span class="form-text">(com DDD, somente números)</span>
                         </div>
                     </fieldset>
@@ -86,7 +87,7 @@
                     <fieldset class="row gx-3">
                         <legend>Endereço</legend>
                         <div class="form-floating mb-3 col-md-6 col-lg-4">
-                            <input class="form-control" type="text" id="txtCEP" placeholder=" " />
+                            <input class="form-control" type="text" id="txtCEP" name="txtCEP" placeholder=" " />
                             <label for="txtCEP">CEP</label>
                         </div>
                         <div class="mb-3 col-md-6 col-lg-8 align-self-end">
@@ -110,9 +111,9 @@
                         </div>
                     </fieldset>
                     <fieldset class="row gx-3">
-                        <legend>Usuário e Senha</legend>
+                        <legend>Senha</legend>
                         <div class="form-floating mb-3 col-lg-6">
-                            <input class="form-control" type="password" id="txtSenha" placeholder=" " />
+                            <input class="form-control" type="password" id="txtSenha" name="txtSenha" placeholder=" " />
                             <label for="txtSenha">Senha</label>
                         </div>
                         <div class="form-floating mb-3 col-lg-6">
@@ -130,8 +131,8 @@
             </div>
             <div class="mb-3 text-left">
                 <a class="btn btn-lg btn-light btn-outline-dark" href="/">Cancelar</a>
-                <input type="button" value="Criar meu cadastro" class="btn btn-lg btn-dark"onclick="window.location.href='../confirmacao/confirmarcadastro.html'" />
-                    </div>
+                <button type="submit" class="btn btn-lg btn-dark">Criar meu cadastro</button>
+            </div>
         </form>
       </div>
     </main>   

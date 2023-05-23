@@ -19,7 +19,7 @@ axios.get(url)
 
       const card = document.createElement('div');
       card.classList.add('card');
-      card.style.width = '18rem';
+      card.style.width = '12rem';
       card.style.marginBottom = '1rem';
 
       const imagemElement = document.createElement('img');

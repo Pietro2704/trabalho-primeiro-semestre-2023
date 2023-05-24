@@ -1,5 +1,6 @@
 <?php 
 require('config.php');
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
   $nome = $_POST["txtNome"];
@@ -10,8 +11,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
   $cep = $_POST["txtCEP"];
   $senha = $_POST["txtSenha"];
 
+  $_SESSION['nome'] = $nome;
+  $_SESSION['email'] = $email;
+
   Cadastrar($conexao, $nome, $email, $cpf, $nasc, $tel, $cep, $senha);  
-  header("Location: ../confirmacao/confirmarcadastro.html");
+  header("Location: ../confirmacao/confirmarcadastro.php");
   exit();
 
 }

@@ -19,18 +19,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Execute a consulta
     $stmt->execute();
   
-    if($stmt->execute()){
-      echo "PASSOU!";
-    }
-    else{
-      echo "nao deu";
-    }
-  }
-  else{
-    echo "nada aq";
-  }
-
-  header("Location: ../confirmacao/confirmcadastrosenha.html");
+    header("Location: ../confirmacao/confirmcadastrosenha.php");
  
+  }
 }
 ?>

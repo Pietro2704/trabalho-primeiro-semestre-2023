@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if( (isset($_SESSION['nome']))  &&  (isset($_SESSION['email'])) ){
+  $nome = $_SESSION['nome'];
+  $email = $_SESSION['email'];
+}
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -12,14 +19,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom shadow-sm mb-3">
       <div class="container">
-        <a class="navbar-brand" href="/"><strong>Mega Store</strong></a>
+        <a class="navbar-brand" href="./"><strong>Mega Store</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse">
           <ul class="navbar-nav flex-grow-1">
             <li class="nav-item">
-              <a href="/" class="nav-link text-white">Principal</a>
+              <a href="./" class="nav-link text-white">Principal</a>
             </li>
             <li class="nav-item">
               <a href="../nav/contato.html" class="nav-link text-white">Contato</a>
@@ -49,7 +56,7 @@
       <div class="container">
           <h1>Nova Senha Cadastrada!</h1>
           <hr>
-          <p>Caro cliente,</p>
+          <p>Caro <?php echo $nome;?>,</p>
           <p>Sua nova senha foi cadastrada com sucesso.
              Para efetuar o Login, 
              <a href="../Entrar/entrar.html">clique aqui.</a>
@@ -57,7 +64,7 @@
           <p>Agradecemos pela confiança em nossos serviços.</p>
           <p>Cordialmente,<br>Central de Relacionamento <strong>Mega Store.</strong></p>
           <p><a
-             href="/"
+             href="./"
              class="btn btn-lg btn-dark">Voltar à Página Principal</a></p>
       </div>
   </main>
@@ -76,6 +83,6 @@
         </div>
       </div>
     </footer>       
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>

@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if( (isset($_SESSION['nome']))  &&  (isset($_SESSION['email'])) ){
+  $nome = $_SESSION['nome'];
+  $email = $_SESSION['email'];
+}
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -12,14 +19,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom shadow-sm mb-3">
       <div class="container">
-        <a class="navbar-brand" href="/"><strong>Mega Store</strong></a>
+        <a class="navbar-brand" href="./"><strong>Mega Store</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse">
           <ul class="navbar-nav flex-grow-1">
             <li class="nav-item">
-              <a href="/" class="nav-link text-white">Principal</a>
+              <a href="./" class="nav-link text-white">Principal</a>
             </li>
             <li class="nav-item">
               <a href="../nav/contato.html" class="nav-link text-white">Contato</a>
@@ -48,12 +55,13 @@
     <main>
       <div class="container py-3">
         <h1>Confirmação de Cadastro</h1>
-        <p>Caro <strong>Primeiro nome do Cliente</strong></p>
-        <p>Obrigado por se cadastrar em nossa loja virtual. Um e-mail de confirmação foi enviado para <b>email@dominio.com</b>. Clique no link de confirmação presente no e-mail para concluirmos seu cadastro.</p>
+
+        <p>Caro <strong><?php echo $nome;?></strong></p>
+        <p>Obrigado por se cadastrar em nossa loja virtual. Um e-mail de confirmação foi enviado para <strong><?php echo $email;?></strong>. Clique no link de confirmação presente no e-mail para concluirmos seu cadastro.</p>
         <p>Desde já, agradecemos pela confiança em nossos serviços.</p>
         <p>Cordialmente,<br>
         Central de Relacionamento <strong>Mega Store.</strong></p>
-        <p><a href="/" class="btn btn-dark">Voltar à Pagina Principal</a></p>
+        <p><a href="../" class="btn btn-dark">Voltar à Pagina Principal</a></p>
       </div>
     </main>   
     <footer class="border-top fixed-bottom text-mutetd bg-light">
@@ -71,6 +79,6 @@
         </div>
       </div>
     </footer>       
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
   </body>
 </html>
